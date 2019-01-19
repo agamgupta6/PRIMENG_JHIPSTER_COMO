@@ -235,7 +235,9 @@ public class UserService {
             userAuthorities = extractAuthorities((List<String>) details.get("roles"));
             // if roles don't exist, try groups
         } else if (details.get("groups") != null) {
-            userAuthorities = extractAuthorities((List<String>) details.get("groups"));
+        	String roles  = (String) details.get("groups");
+        	
+            userAuthorities = extractAuthorities(Arrays.asList(roles.split(",")) );
         } else {
             userAuthorities = authoritiesFromStringStream(
                 authentication.getAuthorities().stream()
