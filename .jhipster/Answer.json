@@ -1,0 +1,47 @@
+{
+    "name": "Answer",
+    "fields": [
+        {
+            "fieldName": "text",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdAt",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "claps",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "accepted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "createdBy",
+            "otherEntityName": "user",
+            "otherEntityField": "email",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "answer"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "como",
+            "otherEntityName": "como",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190120013623",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "answer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
