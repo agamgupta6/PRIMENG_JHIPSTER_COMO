@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="como">
+            <h2><span>Como</span> {{como.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{como.title}}</span>
+                </dd>
+                <dt><span>Text</span></dt>
+                <dd>
+                    <span>{{como.text}}</span>
+                </dd>
+                <dt><span>Claps</span></dt>
+                <dd>
+                    <span>{{como.claps}}</span>
+                </dd>
+                <dt><span>Created At</span></dt>
+                <dd>
+                    <span>{{como.createdAt}}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{como.type}}</span>
+                </dd>
+                <dt><span>Created By</span></dt>
+                <dd>
+                    {{como.createdBy?.email}}
+                </dd>
+                <dt><span>Tag</span></dt>
+                <dd>
+                    <span *ngFor="let tag of como.tags; let last = last">
+                        <a [routerLink]="['/tag', tag?.id, 'view' ]">{{tag.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/como', como.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
